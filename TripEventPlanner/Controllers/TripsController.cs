@@ -92,12 +92,24 @@ namespace TripEventPlanner.Controllers
         public async Task<IActionResult> Create([Bind("TripId,Name,StartDate,EndDate,CountryId,UserId")] Trip trip)
         {
             var id = HttpContext.Session.GetInt32("id");
-            trip.UserId = Convert.ToInt16(id);
+            trip.UserId = Convert.ToInt16(1);
+            if (string.IsNullOrEmpty(trip.Name))
+            {
+                ModelState.AddModelError("Name", "Please enter a name for your trip");
+            }
+            if (trip.StartDate == null || trip.StartDate <= DateTime.Now)
+            {
+                ModelState.AddModelError("StartDate", "Please enter a date in the future");
+            }
+            if (trip.EndDate == null || trip.EndDate <= trip.StartDate)
+            {
+                ModelState.AddModelError("EndDate", "Please enter a valid end date");
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(trip);
                 await _context.SaveChangesAsync();
-                return Redirect("~/Trips/index/" + id);
+                return Redirect("~/Trips/index/" + 1);
             }
             ViewData["CountryId"] = new SelectList(_context.Countries, "CountryId", "Name", trip.CountryId);
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Email", trip.UserId);
