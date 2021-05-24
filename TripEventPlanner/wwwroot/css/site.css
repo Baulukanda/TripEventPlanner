@@ -403,7 +403,7 @@ a {
     border-color: #1861ac;
 }
 
-/* My Trip pag ------------------------------------------------------------------------------------ */
+/* My Trip page ------------------------------------------------------------------------------------ */
 .my-trip {
     display: flex;
 }
@@ -414,7 +414,7 @@ a {
 
 .trip-location-imageUrl {
     margin-right: 1em;
-    width: 500px
+    width: 500px;
 }
 
 .trip-activity-imageUrl figure {
@@ -422,8 +422,13 @@ a {
     width: 200px
 }
 
+.trip-location-imageUrl img {
+    object-fit: cover;
+    height: 300px;
+}
+
 .activity-image {
-    width: 100%
+    width: 100%;
 }
 
 .info-span {
@@ -456,78 +461,20 @@ a.navbar-brand {
 }
 
 .trip-activities {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 1em;
     margin-bottom: 20px;
 }
 
-.trip-activity-imageUrl {
-    width: 200px;
-    height: 150px;
-    margin-right: 20px;
-}
-
-.trip-activity-info {
-}
-
-/* My trip page end ------------------------------------------------------------------------------------ */
-
-/* My Trip pag ------------------------------------------------------------------------------------ */
-.my-trip {
-    display: flex;
-}
-
-.trip-location {
-    display: flex !important;
-}
-
-.trip-location-imageUrl {
-    margin-right: 1em;
-    width: 500px
-}
-
-.activity-image {
-    width: 200px;
-    height: 150px;
-}
-
-.info-span {
-    display: block;
-}
-
-figure {
-    position: relative;
-    text-align: center;
+.trip-activity-imageUrl figure {
     width: 100%;
 }
 
-    figure img {
-        width: 100%;
-        filter: brightness(50%);
-    }
-
-figcaption {
-    position: absolute;
-    bottom: 8px;
-    right: 16px;
-    color: white;
-    font-size: 2em;
-}
-
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
-}
-
-.trip-activities {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.trip-activity-imageUrl {
-    width: 200px;
-    height: 150px;
-    margin-right: 20px;
+.trip-activity-imageUrl img {
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
 }
 
 .trip-activity-info {

@@ -109,7 +109,7 @@
     @foreach (var item in Model.Select((value, i) => new { i = i + 1, value }))
     {
         <article class="activity__item">
-            <img class="activity__img" src="/images/activity/@item.value.ImageUrl" />
+            <img class="activity__img" src="@item.value.ImageUrl" />
             <div class="activity-info">
                 <h1 class="activity__header">@item.i. @item.value.Name</h1>
                 <span class="activity__address info">
